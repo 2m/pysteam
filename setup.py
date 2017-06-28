@@ -1,5 +1,11 @@
 from setuptools import setup
 
+TEST_DEPS = [
+  'nose',
+  'nose-parameterized',
+  'mock',
+]
+
 setup(
   name='pysteam',
   version='1.0.0-b2',
@@ -17,9 +23,6 @@ setup(
   ],
   zip_safe=False,
   test_suite='nose.collector',
-  tests_require=[
-    'nose',
-    'nose-parameterized',
-    'mock',
-  ],
+  tests_require=TEST_DEPS,
+  extras_require={'test': TEST_DEPS},
 )
