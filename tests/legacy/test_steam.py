@@ -107,7 +107,7 @@ class TestSteam(unittest.TestCase):
         s = steam.Steam()
         ids = [ u.id32 for u in s.local_users() ]
 
-        self.assertEqual(ids, [40586375, 49642724])
+        self.assertEqual(set(ids), {40586375, 49642724})
 
     @mock.patch("pysteam.legacy.steam.Steam.userdata_location")
     def test_local_users_ignores_anonymous_user(self, mocked_userdata_location):
@@ -119,4 +119,4 @@ class TestSteam(unittest.TestCase):
         s = steam.Steam()
         ids = [ u.id32 for u in s.local_users() ]
 
-        self.assertEqual(ids, [40586375, 49642724])
+        self.assertEqual(set(ids), {40586375, 49642724})

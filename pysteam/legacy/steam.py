@@ -11,14 +11,14 @@ Represents the local steam installation.
 import sys
 import os
 
-import user
+from . import user
 
 def _is_mac():
     return sys.platform == 'darwin'
 
 def _is_windows():
     return sys.platform != 'darwin' and 'win' in sys.platform
-    
+
 def _is_linux():
     return sys.platform.startswith('linux')
 
@@ -30,7 +30,7 @@ def _windows_steam_location():
     return registry.QueryValueEx(key,"SteamPath")[0]
 
 class Steam(object):
-    
+
     def __init__(self, steam_location=None):
         # If no steam_location was provided but we are on Windows, then we can
         # find Steam's location by looking in the registry
