@@ -16,6 +16,7 @@ setup(
   license='MIT',
   packages=['pysteam'],
   install_requires=[
+    'six'
   ],
   data_files=[
   ],

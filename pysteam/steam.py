@@ -56,4 +56,4 @@ def local_user_ids(steam):
 def local_user_contexts(steam):
   if steam is None:
     return None
-  return map(lambda uid: LocalUserContext(steam, uid), local_user_ids(steam))
+  return [LocalUserContext(steam, uid) for uid in local_user_ids(steam)]

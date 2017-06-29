@@ -12,7 +12,7 @@ VALID_EXTENSIONS = [
   '.tga',
 ]
 
-VALID_EXTENSIONS_WITHOUT_DOT = map(lambda ext: ext[1:], VALID_EXTENSIONS)
+VALID_EXTENSIONS_WITHOUT_DOT = [ext[1:] for ext in VALID_EXTENSIONS]
 
 def is_valid_extension(extension):
   """Returns True is `extension` is a valid image extension to be used with
@@ -38,7 +38,7 @@ def get_custom_image(user_context, app_id):
   """Returns the custom image associated with a given app. If there are
   multiple candidate images on disk, one is chosen arbitrarily."""
   possible_paths = _valid_custom_image_paths(user_context, app_id)
-  existing_images = filter(os.path.exists, possible_paths)
+  existing_images = [path for path in possible_paths if os.path.exists(path)]
   if len(existing_images) > 0:
     return existing_images[0]
 
