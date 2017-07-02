@@ -3,10 +3,13 @@ import uuid
 from setuptools import setup
 from pip.req import parse_requirements
 
+import versioneer
+
 requirements = [str(ir.req) for ir in parse_requirements('requirements.txt', session=uuid.uuid1())]
 
 DATA_FILES = [
   'requirements.txt',
+  'versioneer.py',
 ]
 
 TEST_DEPS = [
@@ -17,7 +20,8 @@ TEST_DEPS = [
 
 setup(
   name='pysteam',
-  version='1.0.0-b2',
+  version=versioneer.get_version(),
+  cmdclass=versioneer.get_cmdclass(),
   description='Python library to work with Steam',
   url='http://github.com/scottrice/pysteam',
   author='Scott Rice',
