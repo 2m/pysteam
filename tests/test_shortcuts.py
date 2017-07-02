@@ -26,6 +26,7 @@ class TestShortcut(unittest.TestCase):
     ("A", "n", "13509714557521625088"),
     ("A", "o", "11702344769781891072"),
     ("A", "k", "14270730282167435264"),
+    (u"A", u"k", "14270730282167435264"),
   ])
   def test_appid_generation(self, name, exe, expected):
     """Tests that pysteam generates the correct appid hash for shortcuts."""
